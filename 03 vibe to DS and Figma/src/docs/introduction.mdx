@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+# Portfolio design system
+
+**Demo 2 · How to clean up a vibe-coded app.** A playground for designers.
+
+- **Part 1 · 02 · Vibe code → Figma**: a vibe-coded React + Tailwind app, mapped into Figma as it is. No Storybook, on purpose.
+- **Part 2 · 03 · Vibe → design system → Figma** (this Storybook): the same app, cleaned up into tokens, components and docs.
+
+Demo 1 (folder 01) shows a hand-made Figma file going to code and back.
+
+The README in this folder explains the stack, the token pipeline and what is not in sync.
+
+Extracted from the vibe-coded one-page portfolio. Code, Storybook and the Figma file **Vibe to DS and Figma** use the same names. Code is the source of truth; see `docs/design-system-guide.md` (for designers) and `docs/figma-sync.md` (what is and isn't in sync).
+
+## How it is built
+
+| Layer | Where in code | Storybook | Figma |
+| --- | --- | --- | --- |
+| Tokens (primitive → semantic) | `tokens/*.tokens.json` → `src/styles/tokens.css` | Foundations | Variables: Primitives, Color, Scale, Typography, Layout (page **Foundations**) |
+| Text styles | `tokens/semantic/typography.tokens.json` → `text-*` utilities | Foundations / Typography | Text styles |
+| Icons | `lucide-react` | — | Page **Icons**, components `Icon/<lucide-name>` |
+| Atoms | `src/components/ui/` (shadcn) and `src/components/patterns/` | Atoms | Page **Atoms** |
+| Molecules | `src/components/patterns/`, some `ui/` | Molecules | Page **Molecules** |
+| Organisms | `src/components/sections/`, dialogs from `ui/` | Organisms | Page **Organisms** |
+| Page | `src/pages/home-page.tsx` | Pages / Home | Page **Home**, built from instances |
+
+`src/components/ui/` stays flat so `npx shadcn add` keeps working. The atomic level is shown in the Storybook sidebar, not in folder names.
+
+## One naming rule
+
+A token path joined with `-` is the CSS name. Joined with `/` it is the Figma name. The leading `color` group is dropped.
+
+| Token (DTCG) | CSS | Tailwind | Figma |
+| --- | --- | --- | --- |
+| `color.background` | `--background` | `bg-background` | variable `background` (Color) |
+| `color.neutral.950` | `--neutral-950` | — (primitive, not exposed) | variable `neutral/950` (Primitives) |
+| `radius.lg` | `--radius-lg` | `rounded-lg` | variable `radius/lg` (Scale) |
+| `spacing.4` | `calc(var(--spacing) * 4)` | `p-4` | variable `spacing/4` (Scale) |
+| `typography.heading-xl` | `--text-heading-xl` | `text-heading-xl` | text style `heading-xl` |
+| Component `Button`, prop `variant="outline"` | `buttonVariants` | — | component set `Button`, property `variant=outline` |
+
+## Where to find the code and CSS of a component
+
+- **Docs tab** of any component: stories, props, then **Component source** (the whole file) and **CSS** (the rules Tailwind generated for it, plus each token and its current value).
+- **Code panel** next to Controls on a story: the JSX for that story.
+- Toolbar **theme** switch: light and dark.
+
+## Storybook MCP
+
+While `npm run storybook` runs, the MCP server is at `http://localhost:6006/mcp`. The project's `.mcp.json` registers it for Claude Code as `storybook`.
+
+## Commands
+
+```bash
+npm run tokens           # rebuild CSS + Figma JSON from /tokens
+npm run figma:tokens     # tokens + tokens/build/figma-push.js (run it in Figma via figma-console)
+npm run dev              # app
+npm run storybook        # Storybook on :6006 (+ MCP)
+npm run build-storybook  # static Storybook
+```

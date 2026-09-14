@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Foundations/Tokens" />
+
+# Tokens
+
+Source of truth: `tokens/` in [DTCG 2025.10](https://www.designtokens.org/tr/2025.10/format/) JSON. `npm run tokens` runs `scripts/build-tokens.mjs` (Style Dictionary 5), which writes:
+
+- `src/styles/tokens.css`: CSS custom properties and the Tailwind v4 theme
+- `tokens/build/figma.json`: the variables, text styles and effect styles pushed to Figma
+- `tokens/build/tokens.json`: the data for these pages
+
+## Two tiers
+
+1. **Primitives** (`tokens/primitives/`): raw values. The neutral ramp, brand orange, reds, alpha colors, and scales for type, radius, spacing, shadow and motion. Components never use primitive colors directly.
+2. **Semantic** (`tokens/semantic/`): what a value is *for*: `background`, `muted-foreground`, `brand`, `prose`, the text styles, layout. Light and dark are two files with the same names, which become the two modes of the Figma **Color** collection.
+
+There is no third component-token tier. With about 25 components and cva variants as the component API, component tokens would add names without adding choices. Add them when a component needs theming on its own.
+
+## Locked palette
+
+`tokens.css` resets Tailwind's default palette (`--color-*: initial`). `bg-red-500` no longer exists, so every color in a component has to be a design-system color.
+
+## Deviations from the DTCG spec
+
+- `tracking.*` uses `em`. DTCG dimensions only allow `px` and `rem`, but letter spacing has to scale with font size.
+- Modes (light/dark, mobile/desktop) are separate files, not the DTCG Resolver module. Style Dictionary 5 does not read resolver files.

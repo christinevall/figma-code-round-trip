@@ -1,0 +1,12 @@
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  padding-block: var(--space-400);
+  border-top: 1px solid var(--color-border-strong); /* Figma: 1px stroke, top side only */
+}
+
+.skill-item__headline {
+  font: var(--text-headline-sm);
+  letter-spacing: var(--text-headline-sm-tracking);
+}

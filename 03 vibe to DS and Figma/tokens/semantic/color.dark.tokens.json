@@ -1,0 +1,30 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 2 — semantic colors, dark mode. Same names as color.light. Figma: Color collection, mode Dark.",
+  "color": {
+    "$type": "color",
+    "background": { "$value": "{color.neutral.950}" },
+    "foreground": { "$value": "{color.neutral.50}" },
+    "card": { "$value": "{color.neutral.900}" },
+    "card-foreground": { "$value": "{color.neutral.50}" },
+    "popover": { "$value": "{color.neutral.900}" },
+    "popover-foreground": { "$value": "{color.neutral.50}" },
+    "primary": { "$value": "{color.neutral.200}" },
+    "primary-foreground": { "$value": "{color.neutral.900}" },
+    "secondary": { "$value": "{color.neutral.800}" },
+    "secondary-foreground": { "$value": "{color.neutral.50}" },
+    "muted": { "$value": "{color.neutral.800}" },
+    "muted-foreground": { "$value": "{color.neutral.400}" },
+    "destructive": { "$value": "{color.red.400}" },
+    "border": { "$value": "{color.white-alpha.10}" },
+    "border-strong": { "$value": "{color.neutral-50-alpha.25}" },
+    "input": { "$value": "{color.white-alpha.15}" },
+    "ring": { "$value": "{color.neutral.500}" },
+    "prose": { "$value": "{color.neutral-50-alpha.80}" },
+    "brand": { "$value": "{color.orange.500}" },
+    "brand-foreground": { "$value": "{color.neutral.0}" },
+    "section": { "$value": "{color.neutral.925}" },
+    "footer": { "$value": "{color.neutral.975}" },
+    "footer-foreground": { "$value": "{color.neutral.0}" }
+  }
+}

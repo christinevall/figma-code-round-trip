@@ -1,0 +1,58 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 1 — primitive palette. Raw values only. Components never use these directly; they go through the semantic tokens in tokens/semantic.",
+  "color": {
+    "$type": "color",
+    "neutral": {
+      "$description": "Neutral ramp. Values are Tailwind v4 neutral (oklch, zero chroma) plus two in-between steps the app needed (925, 975).",
+      "0": { "$value": { "colorSpace": "oklch", "components": [1, 0, 0] } },
+      "50": { "$value": { "colorSpace": "oklch", "components": [0.985, 0, 0] } },
+      "100": { "$value": { "colorSpace": "oklch", "components": [0.97, 0, 0] } },
+      "200": { "$value": { "colorSpace": "oklch", "components": [0.922, 0, 0] } },
+      "300": { "$value": { "colorSpace": "oklch", "components": [0.87, 0, 0] } },
+      "400": { "$value": { "colorSpace": "oklch", "components": [0.708, 0, 0] } },
+      "500": { "$value": { "colorSpace": "oklch", "components": [0.556, 0, 0] } },
+      "600": { "$value": { "colorSpace": "oklch", "components": [0.439, 0, 0] } },
+      "700": { "$value": { "colorSpace": "oklch", "components": [0.371, 0, 0] } },
+      "800": { "$value": { "colorSpace": "oklch", "components": [0.269, 0, 0] } },
+      "900": { "$value": { "colorSpace": "oklch", "components": [0.205, 0, 0] } },
+      "925": {
+        "$value": { "colorSpace": "oklch", "components": [0.185, 0, 0] },
+        "$description": "Only used by the dark-mode shaded section."
+      },
+      "950": { "$value": { "colorSpace": "oklch", "components": [0.145, 0, 0] } },
+      "975": {
+        "$value": { "colorSpace": "oklch", "components": [0.1, 0, 0] },
+        "$description": "Only used by the dark-mode footer."
+      }
+    },
+    "black": { "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "hex": "#000000" } },
+    "orange": {
+      "500": {
+        "$value": { "colorSpace": "srgb", "components": [1, 0.3922, 0.1922], "hex": "#ff6431" },
+        "$description": "The brand orange from the original app (#ff6431)."
+      }
+    },
+    "red": {
+      "400": { "$value": { "colorSpace": "oklch", "components": [0.704, 0.191, 22.216] } },
+      "600": { "$value": { "colorSpace": "oklch", "components": [0.577, 0.245, 27.325] } }
+    },
+    "neutral-950-alpha": {
+      "$description": "neutral-950 with transparency. Replaces the ad-hoc text-foreground/80, /85, /30, /25 modifiers in light mode.",
+      "25": { "$value": { "colorSpace": "oklch", "components": [0.145, 0, 0], "alpha": 0.25 } },
+      "80": { "$value": { "colorSpace": "oklch", "components": [0.145, 0, 0], "alpha": 0.8 } }
+    },
+    "neutral-50-alpha": {
+      "$description": "neutral-50 with transparency. Dark-mode twin of neutral-950-alpha.",
+      "25": { "$value": { "colorSpace": "oklch", "components": [0.985, 0, 0], "alpha": 0.25 } },
+      "80": { "$value": { "colorSpace": "oklch", "components": [0.985, 0, 0], "alpha": 0.8 } }
+    },
+    "white-alpha": {
+      "10": { "$value": { "colorSpace": "oklch", "components": [1, 0, 0], "alpha": 0.1 } },
+      "15": { "$value": { "colorSpace": "oklch", "components": [1, 0, 0], "alpha": 0.15 } }
+    },
+    "black-alpha": {
+      "10": { "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0.1, "hex": "#000000" } }
+    }
+  }
+}

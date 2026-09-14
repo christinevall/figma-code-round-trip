@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ScaleTokens, TextStyles } from '../../.storybook/docs/token-blocks'
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+Poppins at 400, 500, 600, 700 and 800, loaded from `@fontsource/poppins`.
+
+## Text styles
+
+One class sets size, line-height, weight and tracking, e.g. `text-heading-xl`. The same name is a Figma text style. In React, use `Heading` and `Text` rather than the classes directly.
+
+<TextStyles />
+
+## Font sizes
+
+<ScaleTokens group="text" />
+
+## Weights
+
+<ScaleTokens group="font-weight" />
+
+## Line heights and tracking
+
+<ScaleTokens group="leading" />
+
+<ScaleTokens group="tracking" />

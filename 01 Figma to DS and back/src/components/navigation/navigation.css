@@ -1,0 +1,69 @@
+/* mobile first: Figma "breakpoint=mobile" */
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-400) var(--space-500);
+  background: var(--color-surface-default);
+}
+
+/* The open mobile menu is not designed in Figma. This is a simple stacked list. */
+.navigation__menu {
+  display: none;
+  flex-basis: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-500);
+  padding-block: var(--space-500);
+}
+.navigation[data-open] .navigation__menu {
+  display: flex;
+}
+
+.navigation__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  padding: 0;
+  list-style: none;
+}
+
+.navigation__link {
+  font: var(--text-navigation-md);
+  letter-spacing: var(--text-navigation-md-tracking);
+  color: var(--color-text-default);
+  text-decoration: none;
+}
+.navigation__link:hover {
+  text-decoration: underline; /* no hover in Figma yet */
+}
+
+/* tablet: Figma "breakpoint=tablet" */
+@media (min-width: 800px) {
+  .navigation {
+    flex-wrap: nowrap;
+  }
+  .navigation .menu-toggle {
+    display: none;
+  }
+  .navigation__menu {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-700);
+    padding: 0;
+  }
+  .navigation__links {
+    flex-direction: row;
+    gap: var(--space-600);
+  }
+}
+
+/* desktop: Figma "breakpoint=desktop" */
+@media (min-width: 1280px) {
+  .navigation {
+    padding: var(--space-500) var(--space-600);
+  }
+}

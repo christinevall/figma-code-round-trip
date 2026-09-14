@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 2 — layout, 640px and up. Figma: Layout collection, mode Desktop.",
+  "layout": {
+    "$type": "dimension",
+    "container-max": { "$value": { "value": 1120, "unit": "px" } },
+    "gutter": { "$value": { "value": 24, "unit": "px" } },
+    "header-height": { "$value": { "value": 80, "unit": "px" } }
+  }
+}

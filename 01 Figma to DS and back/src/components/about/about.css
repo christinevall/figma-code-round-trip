@@ -1,0 +1,69 @@
+/* mobile first: image on top, full-width button */
+.about {
+  padding: var(--space-700) var(--space-500);
+  background: var(--color-surface-default);
+}
+
+.about__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-500);
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+}
+
+/* The text comes first in the HTML (reading order), the image moves up visually. */
+.about__media {
+  order: -1;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-500);
+}
+
+.about__headline {
+  font: var(--text-headline-lg);
+  letter-spacing: var(--text-headline-lg-tracking);
+}
+
+.about__content .button {
+  align-self: stretch;
+}
+
+/* tablet: side by side, text left */
+@media (min-width: 800px) {
+  .about {
+    padding: var(--space-700) var(--space-600);
+  }
+  .about__container {
+    flex-direction: row;
+    gap: var(--space-700);
+  }
+  .about__media {
+    order: 0;
+  }
+  .about__media,
+  .about__content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .about__content .button {
+    align-self: flex-start;
+  }
+}
+
+/* desktop: Figma uses 95px gap and 66/52/53/64 padding, no tokens. Rounded to the scale. */
+@media (min-width: 1280px) {
+  .about {
+    padding: var(--space-800) var(--space-600);
+  }
+  .about__container {
+    align-items: center;
+    gap: var(--space-900);
+  }
+}

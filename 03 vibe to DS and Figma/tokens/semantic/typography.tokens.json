@@ -1,0 +1,73 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 2 — text styles. CSS: Tailwind utility text-<name> (sets size, line-height, weight and tracking in one class). Figma: text style <name>.",
+  "typography": {
+    "$type": "typography",
+    "display": {
+      "$description": "Hero headline. Fluid: clamp(2.6rem, 9vw, 5.25rem). Uppercase.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.display-max}", "fontWeight": "{font-weight.extrabold}", "lineHeight": "{leading.display}", "letterSpacing": "{tracking.tight}" },
+      "$extensions": { "dev.portfolio-ds": { "textCase": "uppercase", "cssFontSize": "clamp(2.6rem, 9vw, 5.25rem)" } }
+    },
+    "display-sm": {
+      "$description": "Hero headline at its smallest (mobile). Figma only — in CSS the display clamp covers it.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.display-min}", "fontWeight": "{font-weight.extrabold}", "lineHeight": "{leading.display}", "letterSpacing": "{tracking.tight}" },
+      "$extensions": { "dev.portfolio-ds": { "textCase": "uppercase" } }
+    },
+    "heading-2xl": {
+      "$description": "Section headings ≥640px, project title ≥1024px, project dialog title ≥640px.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.4xl}", "fontWeight": "{font-weight.bold}", "lineHeight": 1.111111, "letterSpacing": "{tracking.tight}" }
+    },
+    "heading-xl": {
+      "$description": "Section headings on mobile, project titles, mobile menu links.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.3xl}", "fontWeight": "{font-weight.bold}", "lineHeight": 1.2, "letterSpacing": "{tracking.tight}" }
+    },
+    "heading-lg": {
+      "$description": "Dialog titles, stat values ≥640px.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.2xl}", "fontWeight": "{font-weight.bold}", "lineHeight": 1.333333, "letterSpacing": "{tracking.tight}" }
+    },
+    "heading-md": {
+      "$description": "Stat values on mobile.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.xl}", "fontWeight": "{font-weight.bold}", "lineHeight": 1.4, "letterSpacing": "{tracking.normal}" }
+    },
+    "heading-sm": {
+      "$description": "Skill titles.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.lg}", "fontWeight": "{font-weight.bold}", "lineHeight": 1.555556, "letterSpacing": "{tracking.normal}" }
+    },
+    "body-xl": {
+      "$description": "Hero name ≥640px.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.xl}", "fontWeight": "{font-weight.normal}", "lineHeight": 1.4, "letterSpacing": "{tracking.normal}" }
+    },
+    "body-lg": {
+      "$description": "Hero name on mobile.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.lg}", "fontWeight": "{font-weight.normal}", "lineHeight": 1.555556, "letterSpacing": "{tracking.normal}" }
+    },
+    "body-sm": {
+      "$description": "Single-line UI text: meta lines, footer, list items.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.sm}", "fontWeight": "{font-weight.normal}", "lineHeight": 1.428571, "letterSpacing": "{tracking.normal}" }
+    },
+    "prose-md": {
+      "$description": "Paragraphs: about text, project summaries, dialog lead.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.base}", "fontWeight": "{font-weight.normal}", "lineHeight": "{leading.relaxed}", "letterSpacing": "{tracking.normal}" }
+    },
+    "prose-sm": {
+      "$description": "Small paragraphs: skill descriptions, case-study body.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.sm}", "fontWeight": "{font-weight.normal}", "lineHeight": "{leading.relaxed}", "letterSpacing": "{tracking.normal}" }
+    },
+    "label-md": {
+      "$description": "Buttons, tabs, form labels.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.sm}", "fontWeight": "{font-weight.medium}", "lineHeight": 1.428571, "letterSpacing": "{tracking.normal}" }
+    },
+    "label-strong": {
+      "$description": "Nav links, large buttons, arrow links, small headings.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.sm}", "fontWeight": "{font-weight.semibold}", "lineHeight": 1.428571, "letterSpacing": "{tracking.normal}" }
+    },
+    "caption": {
+      "$description": "Tags, hints, error messages, stat labels.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.xs}", "fontWeight": "{font-weight.normal}", "lineHeight": 1.333333, "letterSpacing": "{tracking.normal}" }
+    },
+    "caption-strong": {
+      "$description": "Badges, status pill, hover chips.",
+      "$value": { "fontFamily": "{font.sans}", "fontSize": "{text.xs}", "fontWeight": "{font-weight.medium}", "lineHeight": 1.333333, "letterSpacing": "{tracking.normal}" }
+    }
+  }
+}

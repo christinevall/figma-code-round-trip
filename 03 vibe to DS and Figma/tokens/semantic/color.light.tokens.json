@@ -1,0 +1,30 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 2 — semantic colors, light mode. Names match shadcn/ui so `npx shadcn add` keeps working. CSS: --<name>. Tailwind: bg-<name>, text-<name>, border-<name>. Figma: Color collection, variable <name>, mode Light.",
+  "color": {
+    "$type": "color",
+    "background": { "$value": "{color.neutral.0}", "$description": "Page background." },
+    "foreground": { "$value": "{color.neutral.950}", "$description": "Default text and icons on background." },
+    "card": { "$value": "{color.neutral.0}", "$description": "Card surface." },
+    "card-foreground": { "$value": "{color.neutral.950}", "$description": "Text on card." },
+    "popover": { "$value": "{color.neutral.0}", "$description": "Dialogs, sheets, command menu, toasts." },
+    "popover-foreground": { "$value": "{color.neutral.950}", "$description": "Text on popover." },
+    "primary": { "$value": "{color.neutral.900}", "$description": "Primary action background (contact button)." },
+    "primary-foreground": { "$value": "{color.neutral.50}", "$description": "Text on primary." },
+    "secondary": { "$value": "{color.neutral.100}", "$description": "Secondary action background." },
+    "secondary-foreground": { "$value": "{color.neutral.900}", "$description": "Text on secondary." },
+    "muted": { "$value": "{color.neutral.100}", "$description": "Subtle fills: hover backgrounds, tab list, image placeholders." },
+    "muted-foreground": { "$value": "{color.neutral.500}", "$description": "Secondary text: meta, hints, placeholders." },
+    "destructive": { "$value": "{color.red.600}", "$description": "Errors and destructive actions." },
+    "border": { "$value": "{color.neutral.200}", "$description": "Default hairline borders and separators." },
+    "border-strong": { "$value": "{color.neutral-950-alpha.25}", "$description": "Stronger rule above skill items; hover border on the status pill." },
+    "input": { "$value": "{color.neutral.200}", "$description": "Form control borders." },
+    "ring": { "$value": "{color.neutral.400}", "$description": "Focus ring (used at 50% opacity)." },
+    "prose": { "$value": "{color.neutral-950-alpha.80}", "$description": "Long-form body copy. Slightly softer than foreground." },
+    "brand": { "$value": "{color.orange.500}", "$description": "Brand accent: logo mark, active nav underline, scroll progress, highlight checks." },
+    "brand-foreground": { "$value": "{color.neutral.0}", "$description": "Text on brand. Warning: white on #ff6431 is 2.9:1, below WCAG AA for small text." },
+    "section": { "$value": "{color.neutral.100}", "$description": "Alternating shaded page band (every second project row)." },
+    "footer": { "$value": "{color.neutral.900}", "$description": "Footer band." },
+    "footer-foreground": { "$value": "{color.neutral.0}", "$description": "Text on footer." }
+  }
+}

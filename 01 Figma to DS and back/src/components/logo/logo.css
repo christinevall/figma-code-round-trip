@@ -1,0 +1,12 @@
+.logo {
+  display: block;
+  flex-shrink: 0;
+  width: 48px; /* fixed size in Figma, no variable */
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-text-accent);
+}
+
+.logo:focus-visible {
+  border-radius: 50%;
+}

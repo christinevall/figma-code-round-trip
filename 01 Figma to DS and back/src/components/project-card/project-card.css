@@ -1,0 +1,56 @@
+/* mobile first: image on top, text below */
+.project-card {
+  padding: var(--layout-gutter);
+  background: var(--color-surface-default);
+}
+.project-card--raised {
+  background: var(--color-surface-raised);
+}
+
+.project-card__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-600);
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+}
+
+.project-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.project-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+}
+
+.project-card__headline {
+  font: var(--text-headline-md);
+  letter-spacing: var(--text-headline-md-tracking);
+}
+
+.project-card__link {
+  font: var(--text-link-md);
+  letter-spacing: var(--text-link-md-tracking);
+  color: var(--color-action-secondary-text);
+  text-decoration: none;
+}
+.project-card__link:hover {
+  text-decoration: underline; /* no hover in Figma yet */
+}
+
+/* tablet and up: image left, text right, half and half */
+@media (min-width: 800px) {
+  .project-card__container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .project-card__media,
+  .project-card__content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,37 @@
+.menu-toggle {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 29px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-border-strong);
+  cursor: pointer;
+}
+
+.menu-toggle__line {
+  position: absolute;
+  right: 4px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+  transition: transform 0.2s, top 0.2s, width 0.2s;
+}
+.menu-toggle__line:nth-child(1) { top: 9px; width: 18px; }
+.menu-toggle__line:nth-child(2) { top: 18px; width: 28px; }
+
+/* open: the two lines turn into an X */
+.menu-toggle[aria-expanded="true"] .menu-toggle__line {
+  top: 13px;
+  width: 24px;
+  right: 6px;
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(1) { transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(2) { transform: rotate(-45deg); }
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

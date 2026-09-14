@@ -1,0 +1,24 @@
+.hero {
+  padding: var(--space-600) var(--layout-gutter);
+  background: var(--color-surface-default);
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-400);
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero__subtitle {
+  font: var(--text-caption-md);
+  letter-spacing: var(--text-caption-md-tracking);
+}
+
+.hero__headline {
+  font: var(--text-display-md);
+  letter-spacing: var(--text-display-md-tracking);
+  text-transform: uppercase;
+}

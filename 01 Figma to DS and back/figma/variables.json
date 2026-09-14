@@ -1,0 +1,74 @@
+{
+  "_source": "Figma file 'Project Step 3: Auto Layout' (6ylAi69lIdG1UPKuc2YqjU), read with Figma Console MCP on 2026-09-13. Values starting with → are aliases.",
+  "text primitives": {
+    "modes": ["lg (>1280)", "md (>800)", "sm (<800)"],
+    "font-family/sans": ["Poppins", "Poppins", "Poppins"],
+    "font-size/100": [16, 16, 16],
+    "font-size/200": [24, 24, 16],
+    "font-size/300": [40, 32, 32],
+    "font-size/400": [48, 40, 32],
+    "font-size/500": [56, 56, 40],
+    "font-size/600": [80, 64, 48],
+    "font-weight/regular": [400, 400, 400],
+    "font-weight/semibold": [600, 600, 600],
+    "font-weight/bold": [700, 700, 700]
+  },
+  "color primitives": {
+    "modes": ["default"],
+    "color/brand/100": "#ffede5", "color/brand/200": "#ffccb8", "color/brand/300": "#ffa585",
+    "color/brand/400": "#ff8556", "color/brand/500": "#ff6330", "color/brand/600": "#e54d1a",
+    "color/brand/700": "#b33b14", "color/brand/800": "#80290d", "color/brand/900": "#4d1707",
+    "color/neutral/000": "#ffffff", "color/neutral/100": "#f7f7f7", "color/neutral/200": "#e8e8e8",
+    "color/neutral/300": "#d1d1d1", "color/neutral/400": "#a0a0a0", "color/neutral/500": "#737373",
+    "color/neutral/600": "#525252", "color/neutral/700": "#3d3d3d", "color/neutral/800": "#2c2c2c",
+    "color/neutral/900": "#161616", "color/neutral/999": "#000000"
+  },
+  "color": {
+    "modes": ["light", "dark"],
+    "text/default": ["→color/neutral/900", "→color/brand/100"],
+    "text/muted": ["→color/neutral/600", "→color/neutral/400"],
+    "text/inverse": ["→color/neutral/000", "→color/neutral/900"],
+    "text/accent": ["→color/brand/500", "→color/brand/500"],
+    "text/disabled": ["→color/neutral/400", "→color/neutral/600"],
+    "surface/default": ["→color/neutral/000", "→color/neutral/900"],
+    "surface/raised": ["→color/neutral/100", "→color/neutral/800"],
+    "surface/inverse": ["→color/neutral/900", "→color/neutral/100"],
+    "surface/accent-subtle": ["→color/brand/100", "→color/brand/900"],
+    "border/default": ["→color/neutral/300", "→color/neutral/700"],
+    "border/strong": ["→color/neutral/900", "→color/neutral/400"],
+    "border/accent": ["→color/brand/500", "→color/brand/500"],
+    "border/focus": ["→color/brand/500", "→color/brand/400"],
+    "action/primary/default": ["→color/neutral/800", "→color/neutral/100"],
+    "action/primary/hover": ["→color/neutral/700", "→color/neutral/200"],
+    "action/primary/pressed": ["→color/neutral/900", "→color/neutral/300"],
+    "action/primary/disabled": ["→color/neutral/200", "→color/neutral/700"],
+    "action/primary/text": ["→color/neutral/000", "→color/neutral/900"],
+    "action/secondary/default": ["→color/neutral/000", "→color/neutral/900"],
+    "action/secondary/hover": ["→color/neutral/100", "→color/neutral/800"],
+    "action/secondary/pressed": ["→color/neutral/200", "→color/neutral/700"],
+    "action/secondary/border": ["→color/neutral/300", "→color/neutral/700"],
+    "action/secondary/text": ["→color/neutral/900", "→color/neutral/100"]
+  },
+  "space primitives": {
+    "modes": ["default"],
+    "space/100": 4, "space/200": 8, "space/300": 12, "space/400": 16, "space/500": 24,
+    "space/600": 32, "space/700": 48, "space/800": 64, "space/900": 80
+  },
+  "radius primitives": {
+    "modes": ["default"],
+    "radius/md": 8
+  },
+  "text styles": {
+    "font/display/md": "Bold · font-size/600 · 120% · -2% · UPPERCASE",
+    "font/headline/lg": "Bold · font-size/400 · 145% · -2%",
+    "font/headline/md": "Bold · font-size/300 · 125% · -2%",
+    "font/headline/sm": "Bold · font-size/200 · 145% · -0.5%",
+    "font/caption/md": "Regular · font-size/200 · 145% · -0.5%",
+    "font/body/md/default": "Regular · font-size/100 · 170% · -0.5%",
+    "font/body/md/strong": "Bold · font-size/100 · 170% · -0.5%",
+    "font/link/inline": "Regular · font-size/100 · 170% · -0.5% · underline",
+    "font/link/md": "Bold · font-size/100 · 170% · -2%",
+    "font/button/md": "SemiBold · font-size/100 · auto · 0%",
+    "font/navigation/md": "SemiBold · font-size/100 · auto · 0%"
+  }
+}

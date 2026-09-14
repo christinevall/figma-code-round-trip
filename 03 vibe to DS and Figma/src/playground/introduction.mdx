@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Playground/Introduction" />
+
+# Playground
+
+A place to prototype pages with the real design system. Everything here runs on the same components, tokens and behaviour as the portfolio, so a prototype can't drift from the product.
+
+## Rules
+
+- **Only compose.** Import from `src/components/ui`, `src/components/patterns` and `src/components/sections`. Don't create components in this folder.
+- **Layout only.** Tailwind layout utilities are fine: `page-container`, `flex`, `grid`, `gap-*`, `p-*`, `mt-*`, breakpoints. Colors, type and radius come from the components or from tokens (`bg-section`, `text-muted-foreground`), never raw values like `bg-[#fff]` or `text-[13px]`.
+- **Content lives in data files.** Keep copy in a `*-data.ts` file next to the page, so the page itself stays pure composition.
+- **Missing a piece?** That's a signal for the design system, not a one-off. Note it, then add the component to `src/components` with its own story (and to Figma).
+
+Run `npm run playground:check` to catch raw values before they spread.
+
+## Prototypes
+
+- **Blog built in Storybook** · `src/playground/blog-page.tsx`. Made from code only: filter tabs, a featured post, a post grid, a newsletter form and the contact dialog.
+- **Blog from Figma** · `src/playground/blog-from-figma.tsx`. The Figma frame *Playground / Blog · Desktop 1280* rebuilt 1:1 with the same components. Its docs page lists what the import can't match.
+
+## Importing a Figma frame
+
+1. Build the frame in Figma from library instances only.
+2. Ask Claude to import it: the frame is read through figma-console (component, variant and text of every instance) and rebuilt here with the matching code components.
+3. Text and images go into a `*-from-figma-data.ts` file; the story gets a **From Figma** label bar and a link to the node.
+4. Anything Figma shows that the code components can't do is listed on the story's docs page. Those are the real drift points.
+
+## From prototype to product
+
+1. Move the page to `src/pages/` and its data to `src/data/`.
+2. Turn any repeated composition (for example the post card) into a real component with a story.
+3. Mirror new components in the Figma file and update its Sync status page.

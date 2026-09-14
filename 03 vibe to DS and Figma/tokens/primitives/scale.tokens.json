@@ -1,0 +1,111 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 1 — primitive scales. Group names follow the Tailwind v4 theme namespaces (--font-*, --text-*, --leading-*, --tracking-*, --radius-*, --shadow-*, --ease-*) so the tokens ARE the Tailwind theme.",
+  "font": {
+    "$type": "fontFamily",
+    "sans": { "$value": ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"] }
+  },
+  "font-weight": {
+    "$type": "fontWeight",
+    "normal": { "$value": 400 },
+    "medium": { "$value": 500 },
+    "semibold": { "$value": 600 },
+    "bold": { "$value": 700 },
+    "extrabold": { "$value": 800 }
+  },
+  "text": {
+    "$type": "dimension",
+    "xs": { "$value": { "value": 12, "unit": "px" } },
+    "sm": { "$value": { "value": 14, "unit": "px" } },
+    "base": { "$value": { "value": 16, "unit": "px" } },
+    "lg": { "$value": { "value": 18, "unit": "px" } },
+    "xl": { "$value": { "value": 20, "unit": "px" } },
+    "2xl": { "$value": { "value": 24, "unit": "px" } },
+    "3xl": { "$value": { "value": 30, "unit": "px" } },
+    "4xl": { "$value": { "value": 36, "unit": "px" } },
+    "display-min": {
+      "$value": { "value": 41.6, "unit": "px" },
+      "$description": "Lower bound of the hero clamp (2.6rem)."
+    },
+    "display-max": {
+      "$value": { "value": 84, "unit": "px" },
+      "$description": "Upper bound of the hero clamp (5.25rem)."
+    }
+  },
+  "leading": {
+    "$type": "number",
+    "none": { "$value": 1 },
+    "display": { "$value": 1.05 },
+    "tight": { "$value": 1.25 },
+    "snug": { "$value": 1.375 },
+    "normal": { "$value": 1.5 },
+    "relaxed": { "$value": 1.625 }
+  },
+  "tracking": {
+    "$type": "dimension",
+    "$description": "Uses em, which DTCG 2025.10 does not allow for dimension (px/rem only). Kept on purpose: tracking must scale with font size.",
+    "tight": { "$value": { "value": -0.025, "unit": "em" } },
+    "normal": { "$value": { "value": 0, "unit": "em" } },
+    "widest": { "$value": { "value": 0.1, "unit": "em" } }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "Explicit whole-pixel scale. Replaces the original calc(var(--radius) * n) multipliers (4.8 / 6.4 / 8 / 11.2 / 14.4 / 17.6 / 20.8px).",
+    "sm": { "$value": { "value": 4, "unit": "px" } },
+    "md": { "$value": { "value": 6, "unit": "px" } },
+    "lg": { "$value": { "value": 8, "unit": "px" } },
+    "xl": { "$value": { "value": 12, "unit": "px" } },
+    "2xl": { "$value": { "value": 16, "unit": "px" } },
+    "3xl": { "$value": { "value": 20, "unit": "px" } },
+    "4xl": { "$value": { "value": 24, "unit": "px" } }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "$description": "4px grid. CSS only needs --spacing (Tailwind multiplies it: p-4 = 4 × 4px). The named steps exist for Figma; '_' stands in for '.' because DTCG and Figma names cannot contain dots (spacing/1_5 = p-1.5).",
+    "base": { "$value": { "value": 4, "unit": "px" } },
+    "0_5": { "$value": { "value": 2, "unit": "px" } },
+    "1": { "$value": { "value": 4, "unit": "px" } },
+    "1_5": { "$value": { "value": 6, "unit": "px" } },
+    "2": { "$value": { "value": 8, "unit": "px" } },
+    "2_5": { "$value": { "value": 10, "unit": "px" } },
+    "3": { "$value": { "value": 12, "unit": "px" } },
+    "4": { "$value": { "value": 16, "unit": "px" } },
+    "5": { "$value": { "value": 20, "unit": "px" } },
+    "6": { "$value": { "value": 24, "unit": "px" } },
+    "7": { "$value": { "value": 28, "unit": "px" } },
+    "8": { "$value": { "value": 32, "unit": "px" } },
+    "10": { "$value": { "value": 40, "unit": "px" } },
+    "12": { "$value": { "value": 48, "unit": "px" } },
+    "14": { "$value": { "value": 56, "unit": "px" } },
+    "16": { "$value": { "value": 64, "unit": "px" } },
+    "20": { "$value": { "value": 80, "unit": "px" } },
+    "24": { "$value": { "value": 96, "unit": "px" } }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "sm": {
+      "$value": [
+        { "color": "{color.black-alpha.10}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 1, "unit": "px" }, "blur": { "value": 3, "unit": "px" }, "spread": { "value": 0, "unit": "px" } },
+        { "color": "{color.black-alpha.10}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 1, "unit": "px" }, "blur": { "value": 2, "unit": "px" }, "spread": { "value": -1, "unit": "px" } }
+      ]
+    },
+    "lg": {
+      "$value": [
+        { "color": "{color.black-alpha.10}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 10, "unit": "px" }, "blur": { "value": 15, "unit": "px" }, "spread": { "value": -3, "unit": "px" } },
+        { "color": "{color.black-alpha.10}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 4, "unit": "px" }, "blur": { "value": 6, "unit": "px" }, "spread": { "value": -4, "unit": "px" } }
+      ]
+    }
+  },
+  "duration": {
+    "$type": "duration",
+    "fast": { "$value": { "value": 100, "unit": "ms" }, "$description": "Overlays fading in and out." },
+    "base": { "$value": { "value": 200, "unit": "ms" }, "$description": "Sheet slide." },
+    "slow": { "$value": { "value": 300, "unit": "ms" }, "$description": "Hover reveals, nav underline, back-to-top." },
+    "reveal": { "$value": { "value": 700, "unit": "ms" }, "$description": "Scroll reveal and image zoom." }
+  },
+  "ease": {
+    "$type": "cubicBezier",
+    "out": { "$value": [0, 0, 0.2, 1] },
+    "in-out": { "$value": [0.4, 0, 0.2, 1] }
+  }
+}

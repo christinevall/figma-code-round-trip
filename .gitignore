@@ -1,0 +1,13 @@
+# Dependencies — run `npm install` in each folder
+node_modules/
+
+# Build output — run `npm run build` / `npm run build-storybook`
+dist/
+storybook-static/
+
+# Local and system files
+.DS_Store
+.env
+.env.*
+*.log
+.claude/

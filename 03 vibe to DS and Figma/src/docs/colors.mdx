@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { PrimitiveColors, SemanticColors } from '../../.storybook/docs/token-blocks'
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+## Semantic
+
+Use these in components. Light and dark swatches are the real values from `tokens.css`.
+
+<SemanticColors />
+
+## Primitives
+
+The palette the semantic colors point to. Figma collection **Primitives**. Not available as Tailwind utilities.
+
+<PrimitiveColors />
+
+## Contrast notes
+
+- White on `brand` (#ff6431) is about 3:1. That fails WCAG AA for normal text, and the brand `Badge` uses it. Use it for large or bold text only, or switch `brand-foreground` to `neutral-950`.
+- `muted-foreground` on `muted` in light mode is about 4.3:1, just under AA for small text.

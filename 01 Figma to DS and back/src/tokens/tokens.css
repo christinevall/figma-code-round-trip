@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Tokens
+   Read from the Figma file "Project Step 3: Auto Layout" (Figma Console MCP).
+   Raw export: figma/variables.json
+
+   Figma collection          → here
+   ---------------------------------------------------------------
+   color primitives          → 1. Primitives
+   space primitives          → 1. Primitives
+   radius primitives         → 1. Primitives
+   text primitives (lg/md/sm)→ 1. Primitives + media queries
+   color (light / dark)      → 2. Semantic colors + [data-theme="dark"]
+   text styles               → 3. Text styles
+
+   Back in Figma ("Code to Design"), the same tokens live in 3 collections:
+   Primitives · Color (Light, Dark) · Breakpoint (sm, md, lg: font sizes + gutter)
+   ========================================================================== */
+
+
+/* 1. Primitives ---------------------------------------------------------- */
+
+:root {
+  /* color primitives */
+  --color-brand-100: #ffede5;
+  --color-brand-200: #ffccb8;
+  --color-brand-300: #ffa585;
+  --color-brand-400: #ff8556;
+  --color-brand-500: #ff6330;
+  --color-brand-600: #e54d1a;
+  --color-brand-700: #b33b14;
+  --color-brand-800: #80290d;
+  --color-brand-900: #4d1707;
+
+  --color-neutral-000: #ffffff;
+  --color-neutral-100: #f7f7f7;
+  --color-neutral-200: #e8e8e8;
+  --color-neutral-300: #d1d1d1;
+  --color-neutral-400: #a0a0a0;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #3d3d3d;
+  --color-neutral-800: #2c2c2c;
+  --color-neutral-900: #161616;
+  --color-neutral-999: #000000;
+
+  /* space primitives */
+  --space-100: 4px;
+  --space-200: 8px;
+  --space-300: 12px;
+  --space-400: 16px;
+  --space-500: 24px;
+  --space-600: 32px;
+  --space-700: 48px;
+  --space-800: 64px;
+  --space-900: 80px;
+
+  /* radius primitives */
+  --radius-md: 8px;
+
+  /* text primitives
+     Figma has three modes: sm (<800), md (>800), lg (>1280).
+     In code, modes like these become media queries.
+     sm is the starting point; bigger screens override below. */
+  --font-family-sans: "Poppins", system-ui, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-100: 16px;
+  --font-size-200: 16px;
+  --font-size-300: 32px;
+  --font-size-400: 32px;
+  --font-size-500: 40px;
+  --font-size-600: 48px;
+}
+
+/* Layout
+   --layout-gutter is the space left and right of every section.
+   Like the font sizes, it changes with the screen, so components
+   don't need their own media query just for padding. */
+:root {
+  --layout-container-max: 1200px;
+  --layout-gutter: var(--space-500);
+}
+
+/* md (>800) */
+@media (min-width: 800px) {
+  :root {
+    --font-size-200: 24px;
+    --font-size-400: 40px;
+    --font-size-500: 56px;
+    --font-size-600: 64px;
+  }
+}
+
+/* lg (>1280) */
+@media (min-width: 1280px) {
+  :root {
+    --font-size-300: 40px;
+    --font-size-400: 48px;
+    --font-size-600: 80px;
+    --layout-gutter: var(--space-600);
+  }
+}
+
+
+/* 2. Semantic colors ------------------------------------------------------
+   Components only use these, never the primitives above.
+   Figma modes "light" and "dark" become a data-theme attribute. */
+
+:root,
+[data-theme="light"] {
+  --color-text-default: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-600);
+  --color-text-inverse: var(--color-neutral-000);
+  --color-text-accent: var(--color-brand-500);
+  --color-text-disabled: var(--color-neutral-400);
+
+  --color-surface-default: var(--color-neutral-000);
+  --color-surface-raised: var(--color-neutral-100);
+  --color-surface-inverse: var(--color-neutral-900);
+  --color-surface-accent-subtle: var(--color-brand-100);
+
+  --color-border-default: var(--color-neutral-300);
+  --color-border-strong: var(--color-neutral-900);
+  --color-border-accent: var(--color-brand-500);
+  --color-border-focus: var(--color-brand-500);
+
+  --color-action-primary-default: var(--color-neutral-800);
+  --color-action-primary-hover: var(--color-neutral-700);
+  --color-action-primary-pressed: var(--color-neutral-900);
+  --color-action-primary-disabled: var(--color-neutral-200);
+  --color-action-primary-text: var(--color-neutral-000);
+
+  --color-action-secondary-default: var(--color-neutral-000);
+  --color-action-secondary-hover: var(--color-neutral-100);
+  --color-action-secondary-pressed: var(--color-neutral-200);
+  --color-action-secondary-border: var(--color-neutral-300);
+  --color-action-secondary-text: var(--color-neutral-900);
+}
+
+[data-theme="dark"] {
+  --color-text-default: var(--color-brand-100);
+  --color-text-muted: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-900);
+  --color-text-accent: var(--color-brand-500);
+  --color-text-disabled: var(--color-neutral-600);
+
+  --color-surface-default: var(--color-neutral-900);
+  --color-surface-raised: var(--color-neutral-800);
+  --color-surface-inverse: var(--color-neutral-100);
+  --color-surface-accent-subtle: var(--color-brand-900);
+
+  --color-border-default: var(--color-neutral-700);
+  --color-border-strong: var(--color-neutral-400);
+  --color-border-accent: var(--color-brand-500);
+  --color-border-focus: var(--color-brand-400);
+
+  --color-action-primary-default: var(--color-neutral-100);
+  --color-action-primary-hover: var(--color-neutral-200);
+  --color-action-primary-pressed: var(--color-neutral-300);
+  --color-action-primary-disabled: var(--color-neutral-700);
+  --color-action-primary-text: var(--color-neutral-900);
+
+  --color-action-secondary-default: var(--color-neutral-900);
+  --color-action-secondary-hover: var(--color-neutral-800);
+  --color-action-secondary-pressed: var(--color-neutral-700);
+  --color-action-secondary-border: var(--color-neutral-700);
+  --color-action-secondary-text: var(--color-neutral-100);
+}
+
+
+/* 3. Text styles ----------------------------------------------------------
+   One pair per Figma text style: the font shorthand + letter spacing.
+   Use:  font: var(--text-body-md); letter-spacing: var(--text-body-md-tracking);
+   The sizes follow the media queries above automatically. */
+
+:root {
+  /* font/display/md (UPPERCASE in Figma, set in the component) */
+  --text-display-md: var(--font-weight-bold) var(--font-size-600) / 1.2 var(--font-family-sans);
+  --text-display-md-tracking: -0.02em;
+
+  /* font/headline/lg */
+  --text-headline-lg: var(--font-weight-bold) var(--font-size-400) / 1.45 var(--font-family-sans);
+  --text-headline-lg-tracking: -0.02em;
+
+  /* font/headline/md */
+  --text-headline-md: var(--font-weight-bold) var(--font-size-300) / 1.25 var(--font-family-sans);
+  --text-headline-md-tracking: -0.02em;
+
+  /* font/headline/sm */
+  --text-headline-sm: var(--font-weight-bold) var(--font-size-200) / 1.45 var(--font-family-sans);
+  --text-headline-sm-tracking: -0.005em;
+
+  /* font/caption/md */
+  --text-caption-md: var(--font-weight-regular) var(--font-size-200) / 1.45 var(--font-family-sans);
+  --text-caption-md-tracking: -0.005em;
+
+  /* font/body/md/default */
+  --text-body-md: var(--font-weight-regular) var(--font-size-100) / 1.7 var(--font-family-sans);
+  --text-body-md-tracking: -0.005em;
+
+  /* font/body/md/strong */
+  --text-body-md-strong: var(--font-weight-bold) var(--font-size-100) / 1.7 var(--font-family-sans);
+  --text-body-md-strong-tracking: -0.005em;
+
+  /* font/link/inline (underlined in Figma) */
+  --text-link-inline: var(--font-weight-regular) var(--font-size-100) / 1.7 var(--font-family-sans);
+  --text-link-inline-tracking: -0.005em;
+
+  /* font/link/md */
+  --text-link-md: var(--font-weight-bold) var(--font-size-100) / 1.7 var(--font-family-sans);
+  --text-link-md-tracking: -0.02em;
+
+  /* font/button/md */
+  --text-button-md: var(--font-weight-semibold) var(--font-size-100) / 1.5 var(--font-family-sans);
+  --text-button-md-tracking: 0;
+
+  /* font/navigation/md */
+  --text-navigation-md: var(--font-weight-semibold) var(--font-size-100) / 1.5 var(--font-family-sans);
+  --text-navigation-md-tracking: 0;
+}

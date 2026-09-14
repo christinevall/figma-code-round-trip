@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Portfolio · a mini design system
+
+**Demo 1 · Figma to code and back.** A playground for designers: what happens
+when a hand-made Figma file becomes code, and that code becomes Figma again?
+
+- **Step 1 · Figma → code** (this Storybook): a hand-made Figma file, read by AI.
+- **Step 2 · Code → Figma**: this code, built back into a new Figma file.
+
+Demo 2 (folders 02 and 03) shows how to clean up a vibe-coded app.
+
+Built from one Figma file, read by Claude through the Figma Console MCP.
+Plain HTML and CSS, no framework, so every file is readable. The README in
+this folder explains the stack and what was not checked.
+
+## Figma → code
+
+| In Figma | In code | Where |
+| --- | --- | --- |
+| Variable collections | CSS custom properties | `src/tokens/tokens.css` |
+| Color modes light / dark | `data-theme="dark"` | Theme switch in the toolbar |
+| Text modes lg / md / sm | Media queries at 800px and 1280px | Viewport switch in the toolbar |
+| Text styles | `--text-*` font shorthands | `src/tokens/tokens.css` |
+| Component with 3 breakpoint variants | **One** responsive component | `src/components/` |
+| Button states as variants | `:hover`, `:active`, `:focus-visible` | `button.css` |
+| Inside stroke | Inset box-shadow | `button.css` |
+| Slot | An `image` prop | ProjectCard, About |
+| The page frames | Components only, no extra CSS | `src/pages/portfolio.js` |
+
+## The numbers
+
+- **63** Figma variables → **63** CSS custom properties
+- **11** text styles → **11** `--text-*` tokens
+- **10** components with **30** variants → **10** components
+- **3** page frames → **1** page
+
+Start with **Foundations** to see the tokens, then **Components**, then **Pages / Portfolio**.

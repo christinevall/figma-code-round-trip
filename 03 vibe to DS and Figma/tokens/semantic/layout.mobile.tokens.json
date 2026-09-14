@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Tier 2 — layout, below 640px. Figma: Layout collection, mode Mobile.",
+  "layout": {
+    "$type": "dimension",
+    "container-max": { "$value": { "value": 1120, "unit": "px" }, "$description": "Max width of page-container (70rem)." },
+    "gutter": { "$value": { "value": 20, "unit": "px" }, "$description": "Horizontal page padding." },
+    "header-height": { "$value": { "value": 64, "unit": "px" }, "$description": "Sticky header height." }
+  }
+}
