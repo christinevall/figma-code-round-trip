@@ -1,11 +1,22 @@
 # 01 · Figma to code and back
 
-**Demo 1 · Figma to code and back.** See the [overview](../README.md). Two steps, one folder:
+**Demo 1 of the [Figma and code round trip](../README.md).** A one-page portfolio designed by hand in Figma becomes code, and that code becomes a new Figma file. The simplest possible stack: plain HTML, CSS and a little JavaScript, no framework.
 
-| Step | Direction | Figma file |
-| --- | --- | --- |
-| **Step 1** | Hand-made Figma file → code | [01 · Step 1: Handmade Figma to Code](https://www.figma.com/community/file/1681259703873319741) |
-| **Step 2** | That code → a new Figma file | [01 · Step 2: Code DS to Figma](https://www.figma.com/community/file/1681259233728578359) |
+| | |
+| --- | --- |
+| **Live Storybook** | [Figma to design system and back](https://christinevall.github.io/figma-code-round-trip/figma-to-ds-and-back/), no install needed |
+| **Figma, step 1** | [Handmade Figma to Code](https://www.figma.com/community/file/1681259703873319741): the hand-made file the code was built from |
+| **Figma, step 2** | [Code DS to Figma](https://www.figma.com/community/file/1681259233728578359): the new file built from the code |
+
+## Start here
+
+| You want to… | Go to |
+| --- | --- |
+| See the components, live | [Live Storybook](https://christinevall.github.io/figma-code-round-trip/figma-to-ds-and-back/) → *Introduction* |
+| Compare the two Figma files | Step 1 and step 2 above: 30 breakpoint variants by hand, 3 generated from code |
+| Understand how it is built, no code knowledge needed | [In plain words](#in-plain-words), then [the stack](#the-stack-tool-by-tool) |
+| See what the AI found unclear in the hand-made file | [What the AI noticed](#what-the-ai-noticed-in-the-hand-made-figma-file) |
+| Run it on your computer | [Run it on your computer](#run-it-on-your-computer) |
 
 ## What happened
 
@@ -21,20 +32,42 @@
 Compare the two Figma files: the hand-made one has 30 breakpoint variants. The
 one generated from code has breakpoint variants on 3 components only.
 
-## The stack, in plain words
+## In plain words
 
-| Tool | What it is | Relevant for design? |
+**A design system in code is the same idea as a Figma library.** Figma has components, variables and styles. The code has the same things, written as text files a browser can show.
+
+| In Figma you know… | In this code it is… | Where |
 | --- | --- | --- |
-| **HTML + CSS** | No framework. Every component is a small `.js` file that returns markup, plus a `.css` file | Yes: easy to read, no React knowledge needed |
-| **CSS custom properties** | The design tokens (`--color-text-default`) in `src/tokens/tokens.css` | **Yes, most of all.** Same names as the Figma variables |
-| **Vite** | Dev server that shows the page | No |
-| **Storybook 10** | Every component on its own, with light/dark and the three frame sizes | **Yes.** Look here first |
-| **Figma Console MCP** | The bridge Claude used to read (Step 1) and write (Step 2) the Figma files | Only as a tool |
+| A component (Button) with variants | A small **JavaScript function** that returns HTML, with options: `variant`, `label` | `src/components/button/button.js` |
+| Variables (colours, spacing, type) | **Design tokens**: CSS variables like `--color-action-primary-default` | `src/tokens/tokens.css` |
+| The look of a component | A **stylesheet** that uses those tokens | `src/components/button/button.css` |
+| The library file you browse | **Storybook**, a website with every component and state | [live](https://christinevall.github.io/figma-code-round-trip/figma-to-ds-and-back/) or http://localhost:6010 |
 
-No Tailwind, no React, no token build step. That is on purpose: this is the
-simplest possible version to compare 02 and 03 against.
+### How a colour gets from Figma to the screen, and back
 
-## How Figma and code connect
+1. **Figma (hand-made):** the variable `action/primary/default` points at `color/neutral/800` (#2C2C2C) in Light mode.
+2. **Read:** Claude read the file through the Figma Console MCP and saved every variable in `figma/variables.json`.
+3. **Token:** it wrote the same decision into `src/tokens/tokens.css`:<br>`--color-action-primary-default: var(--color-neutral-800);`
+4. **Component:** `button.css` says `background: var(--color-action-primary-default);`, never the hex.
+5. **Browser:** the page looks the token up and paints #2C2C2C. In dark mode it reads the dark value.
+6. **Back to Figma (step 2):** Claude built a new file from the code: the variable is called `action/primary/default` again, now with the CSS name as its code syntax.
+
+So **change the token once, and every component that uses it changes**. The names stay the same in both tools, which is what lets the AI move between them.
+
+## The stack, tool by tool
+
+The simplest possible chain on purpose, to compare 03 against. No Tailwind, no React, no token build step.
+
+| Tool | What it is | What it does here |
+| --- | --- | --- |
+| **Node.js + npm** | The engine that runs JavaScript tools on your computer, and the store they are installed from | Installs everything (`npm install`) and starts Storybook (`npm run storybook`) |
+| **HTML + CSS + a little JavaScript** | The three languages every website is made of. No framework | Each component is a `.js` file that returns markup and a `.css` file for the look. Easy to read without React knowledge |
+| **CSS custom properties** | Variables inside CSS | The design tokens, in three layers: primitives → semantic → text styles. Same names as the Figma variables |
+| **Vite** 8 | A fast development server and bundler | Shows a code change in the browser within a second. Runs quietly under Storybook |
+| **Storybook** 10 (HTML) | A workshop where each component is shown on its own, in every state | Every component with light/dark and the three Figma frame sizes, plus a *Code* section on each Docs page |
+| **Figma Console MCP** | A plug that lets an AI assistant read and build inside the Figma desktop app | Step 1: read the hand-made file. Step 2: built the new file |
+
+## How Figma and code stay in sync
 
 ```
 Step 1   Figma file (hand-made) ──read──►  figma/variables.json ──►  src/tokens/tokens.css ──►  components ──►  Storybook
@@ -44,13 +77,17 @@ Step 2   code (source of truth)  ──write──►  new Figma file: variables
 There is no automatic sync. Each direction was one run with Claude and the
 Figma Console MCP.
 
-## Run it
+## Run it on your computer
+
+You need [Node.js](https://nodejs.org) 22 or newer. Check with `node -v` in Terminal.
 
 ```bash
 npm install
 npm run dev          # the page → http://localhost:5173
 npm run storybook    # Storybook → http://localhost:6010
 ```
+
+`Ctrl + C` in Terminal stops it.
 
 ## What's where
 
@@ -65,8 +102,6 @@ npm run storybook    # Storybook → http://localhost:6010
 | `src/pages/portfolio.js` | The page, made only from components |
 | `src/Introduction.mdx` | The first page in Storybook |
 | `.storybook/` | Theme switch (light/dark), the three Figma frame sizes, and a folded **Code** section on every Docs page (`docs-page.js`) |
-
----
 
 ## Step 1 · Figma → code
 
@@ -177,6 +212,21 @@ lost their desktop-only media queries. Nothing looks different.
 
 ---
 
+## Words you will hear
+
+| Word | Means |
+| --- | --- |
+| **Repository (repo)** | The project folder, with the full history of every change. This one lives on GitHub |
+| **npm / Node.js** | The tools that install and run everything. You type `npm run storybook`, they do the rest |
+| **Build** | Turning the source files into a finished website. The live Storybook is a build |
+| **Component** | A reusable piece of interface, like a Figma component. In code it is a file you use as `<Button />` |
+| **Prop** | A component property. `variant="primary"` in code is `variant=primary` in Figma |
+| **Token** | A named design decision (a colour, a spacing step) that code and Figma share |
+| **Primitive / semantic token** | *What* a value is (a colour from a ramp) / *what it is for* (the background of a primary button). Components use semantic tokens |
+| **Story** | One example of a component in one state, shown in Storybook |
+| **MCP** | A plug that lets an AI assistant (Claude, Cursor) look things up in a tool and work in it: Storybook, or the Figma desktop app |
+| **Code Connect** | A Figma feature that shows the real code of a component in Dev Mode. Needs an Organization or Enterprise plan |
+
 ## Not done / not checked
 
 - **Images.** The page uses the real images exported from Figma
@@ -191,3 +241,13 @@ lost their desktop-only media queries. Nothing looks different.
 - Pixel-level comparison with Figma was done by eye and by screenshots, not
   measured. Accessibility: the a11y panel runs in Storybook, no full audit.
 - The page renders with JavaScript. A real site would output static HTML.
+
+## Made by
+
+[Christine Vallaure](https://christinevallaure.com), founder of [moonlearning.io](https://moonlearning.io). I teach designers how Figma, code and AI fit together.
+
+- **The full course on this workflow** is in the making: advanced, for designers with solid Figma skills. The [newsletter](https://moonlearning.io/newsletter) is where I announce it.
+- **Live course on Maven:** [Build Scalable UI in Figma & AI: Design Systems Agents Can Actually Use](https://maven.com/moonlearning/figma). Four weeks, hybrid, all levels.
+- **Lightning session:** *Design Figma Files That Scale with AI*, with materials at [moonlearning.io/scaleAI](https://moonlearning.io/scaleAI).
+- **Self-paced Figma courses** in the [moonlearning store](https://moonlearning.io/store), and [free sessions](https://moonlearning.io/resources).
+- **For design teams:** in-house AI workshops and consulting, through [moonlearning.io](https://moonlearning.io).
