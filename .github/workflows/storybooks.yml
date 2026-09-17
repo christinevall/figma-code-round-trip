@@ -1,0 +1,62 @@
+# Publishes both Storybooks of this repo to GitHub Pages, on every push to main.
+#   https://christinevall.github.io/figma-code-round-trip/                    overview
+#   https://christinevall.github.io/figma-code-round-trip/figma-to-ds-and-back/
+#   https://christinevall.github.io/figma-code-round-trip/vibe-to-ds-and-figma/
+name: Storybooks to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Storybook · 01 Figma to DS and back
+        working-directory: "01 Figma to DS and back"
+        run: |
+          npm ci
+          npx storybook build -o "../site/figma-to-ds-and-back"
+      - name: Storybook · 03 vibe to DS and Figma
+        working-directory: "03 vibe to DS and Figma"
+        run: |
+          npm ci
+          npm run tokens
+          npx storybook build -o "../site/vibe-to-ds-and-figma"
+      - name: Overview page
+        run: |
+          cat > site/index.html <<'HTML'
+          <!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Figma ↔ code round trip · Storybooks</title>
+          <style>body{font:16px/1.5 system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;color:#1e1e1e}a{color:inherit}li{margin:.75rem 0}small{color:#757575}</style>
+          <h1>Figma ↔ code round trip</h1>
+          <p>Two demos, each with its design system in Storybook.</p>
+          <ul>
+            <li><a href="figma-to-ds-and-back/">01 · Figma to design system and back</a><br><small>A Figma design turned into components, then generated back into Figma.</small></li>
+            <li><a href="vibe-to-ds-and-figma/">03 · Vibe-coded app to design system and Figma</a><br><small>A vibe-coded page, its system extracted into tokens and components, then into Figma.</small></li>
+          </ul>
+          <p><small><a href="https://github.com/christinevall/figma-code-round-trip">Code on GitHub</a></small></p>
+          HTML
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

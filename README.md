@@ -1,5 +1,7 @@
 # Figma and code with AI · two demos
 
+**Live Storybooks:** [01 · Figma to design system and back](https://christinevall.github.io/figma-code-round-trip/figma-to-ds-and-back/) · [03 · Vibe-coded app to design system and Figma](https://christinevall.github.io/figma-code-round-trip/vibe-to-ds-and-figma/)
+
 A playground for designers. The same small one-page portfolio goes back and
 forth between Figma and code with Claude and the Figma Console MCP. Two demos,
 four Figma files, three code folders.
